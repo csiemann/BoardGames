@@ -9,7 +9,7 @@ public class UIChess {
 			}
 			System.out.println();
 		}
-		System.out.println("  a b c d e f h g");
+		System.out.println("  a b c d e f g h");
 	}
 
 	private static void printPiece(ChessPiece piece) {
