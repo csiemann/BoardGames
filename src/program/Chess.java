@@ -16,7 +16,7 @@ public class Chess {
 		while (true) {
 			try {
 				UIChess.cleanScreen();
-				UIChess.printBoard(match.getPieces());
+				UIChess.printMatch(match);
 
 				System.out.println();
 				System.out.print("Source: ");

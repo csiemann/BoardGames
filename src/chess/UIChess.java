@@ -23,11 +23,18 @@ public class UIChess {
 		}
 	}
 
+	public static void printMatch(ChessMatch chessMatch) {
+		printBoard(chessMatch.getPieces());
+		System.out.println();
+		System.out.println("Turn : "+chessMatch.getTurn());
+		System.out.println("Wainting player : "+chessMatch.getCurrentPlayer());
+	}
+
 	public static void printBoard(ChessPiece[][] pieces) {
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.print((8 - i) + " ");
 			for (int j = 0; j < pieces.length; j++) {
-				printPiece(pieces[i][j],false);
+				printPiece(pieces[i][j], false);
 			}
 			System.out.println();
 		}
@@ -38,7 +45,7 @@ public class UIChess {
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.print((8 - i) + " ");
 			for (int j = 0; j < pieces.length; j++) {
-				printPiece(pieces[i][j],possibleMoves[i][j]);
+				printPiece(pieces[i][j], possibleMoves[i][j]);
 			}
 			System.out.println();
 		}
