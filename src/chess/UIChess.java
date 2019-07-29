@@ -5,6 +5,11 @@ import java.util.Scanner;
 
 public class UIChess {
 
+	public static void cleanScreen() {
+		System.out.println("\033[H\033[2J");
+		System.out.flush();
+	}
+
 	public static ChessPosition readChessPosition(Scanner scanner) {
 		try {
 			String s= scanner.nextLine();
