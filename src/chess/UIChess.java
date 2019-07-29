@@ -1,7 +1,10 @@
 package chess;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import utils.AnsiEnum;
 
@@ -23,8 +26,10 @@ public class UIChess {
 		}
 	}
 
-	public static void printMatch(ChessMatch chessMatch) {
+	public static void printMatch(ChessMatch chessMatch,List<ChessPiece> captured) {
 		printBoard(chessMatch.getPieces());
+		System.out.println();
+		printCapturePieces(captured);
 		System.out.println();
 		System.out.println("Turn : "+chessMatch.getTurn());
 		System.out.println("Wainting player : "+chessMatch.getCurrentPlayer());
@@ -62,5 +67,15 @@ public class UIChess {
 			System.out.print(piece.getColor().format(piece, background));
 		}
 		System.out.print(" ");
+	}
+
+	private static void printCapturePieces(List<ChessPiece> captured) {
+		List<ChessPiece> white = captured.stream().filter(x->x.getColor()==Color.WHITE).collect(Collectors.toList());
+		List<ChessPiece> black = captured.stream().filter(x->x.getColor()==Color.BLACK).collect(Collectors.toList());
+		System.out.println("Captured pieces:");
+		System.out.print("White: ");
+		System.out.println(AnsiEnum.print(Arrays.toString(white.toArray()), new AnsiEnum[] {AnsiEnum.BACKGROUND_CYAN,AnsiEnum.BOLD,AnsiEnum.FOREGROUND_WHITE}));
+		System.out.print("Black: ");
+		System.out.println(AnsiEnum.print(Arrays.toString(black.toArray()), new AnsiEnum[] {AnsiEnum.BACKGROUND_YELLOW,AnsiEnum.BOLD,AnsiEnum.FOREGROUND_BLACK}));
 	}
 }
