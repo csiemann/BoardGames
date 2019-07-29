@@ -29,6 +29,34 @@ public enum AnsiEnum {
 		this.ansi = ansi;
 	}
 
+	public static String print(Object msg , AnsiEnum[] styles) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(INIT);
+		for (int i = 0; i < styles.length; i++) {
+			sb.append(styles[i]);
+			if (i != styles.length-1) {
+				sb.append(SEPARATOR);
+			}
+		}
+		sb.append(FINAL);
+		sb.append(msg);
+		sb.append(RESET);
+		return sb.toString();
+	}
+
+	public static String color(AnsiEnum[] styles) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(INIT);
+		for (int i = 0; i < styles.length; i++) {
+			sb.append(styles[i]);
+			if (i != styles.length-1) {
+				sb.append(SEPARATOR);
+			}
+		}
+		sb.append(FINAL);
+		return sb.toString();
+	}
+
 	@Override
 	public String toString() {
 		return ansi;

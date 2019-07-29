@@ -22,6 +22,10 @@ public class Chess {
 				System.out.print("Source: ");
 				ChessPosition source = UIChess.readChessPosition(scanner);
 
+				boolean[][] possibleMoves = match.possibleMoves(source);
+				UIChess.cleanScreen();
+				UIChess.printBoard(match.getPieces(),possibleMoves);
+
 				System.out.println();
 				System.out.print("Target: ");
 				ChessPosition target = UIChess.readChessPosition(scanner);
