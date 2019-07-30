@@ -82,7 +82,7 @@ public class Queen extends ChessPiece {
 		p.setValues(this.getPosition().getRow() + 1, this.getPosition().getColumn() - 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
-			p.setValues(p.getRow() + 1, p.getColumn() + 1);
+			p.setValues(p.getRow() + 1, p.getColumn() - 1);
 		}
 		if (getBoard().positionExists(p) && isThereOpponentPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
