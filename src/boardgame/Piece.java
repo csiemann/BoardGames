@@ -8,7 +8,7 @@ public abstract class Piece {
         this.board = board;
     }
 
-    protected Position getPosition() {
+    public Position getPosition() {
         return position;
     }
 
