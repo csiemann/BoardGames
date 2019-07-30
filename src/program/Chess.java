@@ -12,40 +12,42 @@ import chess.ChessPosition;
 import chess.UIChess;
 
 public class Chess {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ChessMatch match = new ChessMatch();
-        List<ChessPiece> captured = new ArrayList<ChessPiece>();
-        while (true) {
-            try {
-                UIChess.cleanScreen();
-                UIChess.printMatch(match,captured);
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		ChessMatch chessMatch = new ChessMatch();
+		List<ChessPiece> captured = new ArrayList<ChessPiece>();
+		while (!chessMatch.isCheckMate()) {
+			try {
+				UIChess.cleanScreen();
+				UIChess.printMatch(chessMatch, captured);
 
-                System.out.println();
-                System.out.print("Source: ");
-                ChessPosition source = UIChess.readChessPosition(scanner);
+				System.out.println();
+				System.out.print("Source: ");
+				ChessPosition source = UIChess.readChessPosition(scanner);
 
-                boolean[][] possibleMoves = match.possibleMoves(source);
-                UIChess.cleanScreen();
-                UIChess.printBoard(match.getPieces(),possibleMoves);
+				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+				UIChess.cleanScreen();
+				UIChess.printBoard(chessMatch.getPieces(), possibleMoves);
 
-                System.out.println();
-                System.out.print("Target: ");
-                ChessPosition target = UIChess.readChessPosition(scanner);
+				System.out.println();
+				System.out.print("Target: ");
+				ChessPosition target = UIChess.readChessPosition(scanner);
 
-                ChessPiece capturedPiece = match.performChessMove(source, target);
+				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
 
-                if (capturedPiece != null) {
-                	captured.add(capturedPiece);
-                }
+				if (capturedPiece != null) {
+					captured.add(capturedPiece);
+				}
 
-            } catch (ChessException e) {
-                System.out.println(e.getMessage());
-                scanner.nextLine();
-            } catch (InputMismatchException e) {
-                System.out.println(e.getMessage());
-                scanner.nextLine();
-            }
-        }
-    }
+			} catch (ChessException e) {
+				System.out.println(e.getMessage());
+				scanner.nextLine();
+			} catch (InputMismatchException e) {
+				System.out.println(e.getMessage());
+				scanner.nextLine();
+			}
+		}
+		UIChess.cleanScreen();
+		UIChess.printMatch(chessMatch, captured);
+	}
 }
