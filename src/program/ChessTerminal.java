@@ -11,7 +11,7 @@ import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.UIChess;
 
-public class Chess {
+public class ChessTerminal {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		ChessMatch chessMatch = new ChessMatch();
