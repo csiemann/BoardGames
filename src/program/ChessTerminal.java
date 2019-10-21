@@ -9,7 +9,7 @@ import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
-import chess.UIChess;
+import chess.UIChessTerminal;
 
 public class ChessTerminal {
 	public static void main(String[] args) {
@@ -18,20 +18,20 @@ public class ChessTerminal {
 		List<ChessPiece> captured = new ArrayList<ChessPiece>();
 		while (!chessMatch.isCheckMate()) {
 			try {
-				UIChess.cleanScreen();
-				UIChess.printMatch(chessMatch, captured);
+				UIChessTerminal.cleanScreen();
+				UIChessTerminal.printMatch(chessMatch, captured);
 
 				System.out.println();
 				System.out.print("Source: ");
-				ChessPosition source = UIChess.readChessPosition(scanner);
+				ChessPosition source = UIChessTerminal.readChessPosition(scanner);
 
 				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
-				UIChess.cleanScreen();
-				UIChess.printBoard(chessMatch.getPieces(), possibleMoves);
+				UIChessTerminal.cleanScreen();
+				UIChessTerminal.printBoard(chessMatch.getPieces(), possibleMoves);
 
 				System.out.println();
 				System.out.print("Target: ");
-				ChessPosition target = UIChess.readChessPosition(scanner);
+				ChessPosition target = UIChessTerminal.readChessPosition(scanner);
 
 				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
 
@@ -53,7 +53,7 @@ public class ChessTerminal {
 				scanner.nextLine();
 			}
 		}
-		UIChess.cleanScreen();
-		UIChess.printMatch(chessMatch, captured);
+		UIChessTerminal.cleanScreen();
+		UIChessTerminal.printMatch(chessMatch, captured);
 	}
 }

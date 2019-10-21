@@ -2,12 +2,12 @@ package chess;
 
 import utils.AnsiEnum;
 
-public enum Color {
+public enum ColorPlayer {
 	BLACK,
 	WHITE;
 
 
-	Color(){
+	ColorPlayer(){
 	}
 
 	public String format(ChessPiece piece, boolean background) {

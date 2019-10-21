@@ -4,13 +4,13 @@ import boardgame.Board;
 import boardgame.Position;
 import chess.ChessMatch;
 import chess.ChessPiece;
-import chess.Color;
+import chess.ColorPlayer;
 
 public class Pawn extends ChessPiece {
 
 	private ChessMatch chessMatch;
 
-	public Pawn(Board board, Color color, ChessMatch chessMatch) {
+	public Pawn(Board board, ColorPlayer color, ChessMatch chessMatch) {
 		super(board, color);
 		setChessMatch(chessMatch);
 	}
@@ -31,7 +31,7 @@ public class Pawn extends ChessPiece {
 		Position p = new Position(0, 0);
 
 		// Pawn white
-		if (getColor() == Color.WHITE) {
+		if (getColor() == ColorPlayer.WHITE) {
 			p.setValues(getPosition().getRow() - 1, getPosition().getColumn());
 			if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 				mat[p.getRow()][p.getColumn()] = true;

@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import utils.AnsiEnum;
 
-public class UIChess {
+public class UIChessTerminal {
 
 	public static void cleanScreen() {
 		System.out.println("\033[H\033[2J");
@@ -78,9 +78,9 @@ public class UIChess {
 	}
 
 	private static void printCapturePieces(List<ChessPiece> captured) {
-		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE)
+		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == ColorPlayer.WHITE)
 				.collect(Collectors.toList());
-		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK)
+		List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == ColorPlayer.BLACK)
 				.collect(Collectors.toList());
 		System.out.println("Captured pieces:");
 		System.out.print("White: ");

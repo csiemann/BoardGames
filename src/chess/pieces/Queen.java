@@ -3,11 +3,11 @@ package chess.pieces;
 import boardgame.Board;
 import boardgame.Position;
 import chess.ChessPiece;
-import chess.Color;
+import chess.ColorPlayer;
 
 public class Queen extends ChessPiece {
 
-	public Queen(Board board, Color color) {
+	public Queen(Board board, ColorPlayer color) {
 		super(board, color);
 	}
 

@@ -3,11 +3,11 @@ package chess.pieces;
 import boardgame.Board;
 import boardgame.Position;
 import chess.ChessPiece;
-import chess.Color;
+import chess.ColorPlayer;
 
 public class Bishop extends ChessPiece {
 
-	public Bishop(Board board, Color color) {
+	public Bishop(Board board, ColorPlayer color) {
 		super(board, color);
 	}
 
